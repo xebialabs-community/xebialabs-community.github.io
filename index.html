@@ -34,19 +34,68 @@
 <h3>
 <a name="join-the-xebialabs-community-organization" class="anchor" href="#join-the-xebialabs-community-organization"><span class="octicon octicon-link"></span></a>Join the xebialabs-community organization</h3>
 
+<p>Create a github account, and request to join the organization by sending an email to <a href="mailto:jdewinne@xebialabs.com">jdewinne@xebialabs.com</a>.</p>
+
 <h3>
-<a name="fork-a-repo-create-your-own-or-generate-a-pull-request" class="anchor" href="#fork-a-repo-create-your-own-or-generate-a-pull-request"><span class="octicon octicon-link"></span></a>Fork a repo, create your own or generate a pull request</h3>
+<a name="fork-a-repo-or-generate-a-pull-request" class="anchor" href="#fork-a-repo-or-generate-a-pull-request"><span class="octicon octicon-link"></span></a>Fork a repo or generate a pull request</h3>
+
+<p>If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request.
+If you need help on this, you can contact for example the person who has done the latest commits to that repository.</p>
 
 <h3>
 <a name="license-to-be-used" class="anchor" href="#license-to-be-used"><span class="octicon octicon-link"></span></a>License to be used</h3>
 
+<p>Currently we want each plugin to have the following license information maintained:</p>
+
+<pre><code>THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS 
+FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+</code></pre>
+
+<p>This can easily be done using the gradle license plugin <a href="https://github.com/hierynomus/license-gradle-plugin">https://github.com/hierynomus/license-gradle-plugin</a></p>
+
+<pre><code>buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0"
+  }
+}
+
+apply plugin: "com.github.hierynomus.license"
+</code></pre>
+
 <h3>
 <a name="continuous-integration" class="anchor" href="#continuous-integration"><span class="octicon octicon-link"></span></a>Continuous Integration</h3>
 
-<p>.travis.yml file</p>
+<p>We use travis ci as Continuous Integration tool. You can simply browse to <a href="https://travis-ci.org">https://travis-ci.org</a> and login via your github account. Once logged in, you'll see all our community plugins being build. The configuration for that can be found in the <code>.travis.yml</code> file within each repository.
+More information can be found at <a href="http://docs.travis-ci.com/">http://docs.travis-ci.com/</a></p>
 
 <h3>
 <a name="release-your-plugin" class="anchor" href="#release-your-plugin"><span class="octicon octicon-link"></span></a>Release your plugin</h3>
+
+<p>Make sure you follow these steps</p>
+
+<ul>
+<li>Update the <code>build.gradle</code> file to contain the new version number</li>
+<li>Update the <code>.travis.yml</code> file to contain the new version number</li>
+<li>Create a new tag. Example <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>
+</li>
+<li>Push the tag to github: <code>git push --tags</code>
+</li>
+</ul><h3>
+<a name="rules-to-follow" class="anchor" href="#rules-to-follow"><span class="octicon octicon-link"></span></a>Rules to follow</h3>
+
+<ul>
+<li>Each repository must have the license somewhere included</li>
+<li>If your repository is a plugin, the repo name should end with <code>plugin</code>
+</li>
+<li>If your repository is a plugin for XL Deploy, it should start with <code>xld</code>
+</li>
+<li>If your repository is a plugin for XL Release, it should start with <code>xlr</code>
+</li>
+</ul>
       </section>
     </div>
 
