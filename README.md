@@ -37,6 +37,9 @@ apply plugin: "com.github.hierynomus.license"
 We use travis ci as Continuous Integration tool. You can simply browse to https://travis-ci.org and login via your github account. Once logged in, you'll see all our community plugins being build. The configuration for that can be found in the `.travis.yml` file within each repository.
 More information can be found at http://docs.travis-ci.com/
 
+### Use a gradle wrapper
+An example usage of a gradle wrapper can be found in the xld-cloudfoundry-plugin repository. Using a gradle wrapper makes sure we are always using the same gradle version, also on Travis. You can copy the example wrapper from the xld-cloudfoundry-plugin repository or create one yourself using `gradle wrapper`.
+
 ### Release your plugin
 Make sure you follow these steps
 
