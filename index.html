@@ -73,6 +73,11 @@ apply plugin: "com.github.hierynomus.license"
 More information can be found at <a href="http://docs.travis-ci.com/">http://docs.travis-ci.com/</a></p>
 
 <h3>
+<a name="use-a-gradle-wrapper" class="anchor" href="#use-a-gradle-wrapper"><span class="octicon octicon-link"></span></a>Use a gradle wrapper</h3>
+
+<p>An example usage of a gradle wrapper can be found in the xld-cloudfoundry-plugin repository. Using a gradle wrapper makes sure we are always using the same gradle version, also on Travis. You can copy the example wrapper from the xld-cloudfoundry-plugin repository or create one yourself using <code>gradle wrapper</code>.</p>
+
+<h3>
 <a name="release-your-plugin" class="anchor" href="#release-your-plugin"><span class="octicon octicon-link"></span></a>Release your plugin</h3>
 
 <p>Make sure you follow these steps</p>
@@ -84,7 +89,9 @@ More information can be found at <a href="http://docs.travis-ci.com/">http://doc
 </li>
 <li>Push the tag to github: <code>git push --tags</code>
 </li>
-</ul><h3>
+</ul>
+
+<h3>
 <a name="rules-to-follow" class="anchor" href="#rules-to-follow"><span class="octicon octicon-link"></span></a>Rules to follow</h3>
 
 <ul>
