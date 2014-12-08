@@ -27,23 +27,23 @@
     <div class="container">
       <section id="main_content">
         <h3>
-<a name="welcome-to-xebialabs-community-plugins" class="anchor" href="#welcome-to-xebialabs-community-plugins"><span class="octicon octicon-link"></span></a>Welcome to XebiaLabs Community plugins</h3>
+<a id="welcome-to-xebialabs-community-plugins" class="anchor" href="#welcome-to-xebialabs-community-plugins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to XebiaLabs Community plugins</h3>
 
 <p>This page describes how you can contribute to the XebiaLabs Community plugins, where the continuous integration is located and what steps to follow to release your community plugin.</p>
 
 <h3>
-<a name="join-the-xebialabs-community-organization" class="anchor" href="#join-the-xebialabs-community-organization"><span class="octicon octicon-link"></span></a>Join the xebialabs-community organization</h3>
+<a id="join-the-xebialabs-community-organization" class="anchor" href="#join-the-xebialabs-community-organization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Join the xebialabs-community organization</h3>
 
 <p>Create a github account, and request to join the organization by sending an email to <a href="mailto:jdewinne@xebialabs.com">jdewinne@xebialabs.com</a>.</p>
 
 <h3>
-<a name="fork-a-repo-or-generate-a-pull-request" class="anchor" href="#fork-a-repo-or-generate-a-pull-request"><span class="octicon octicon-link"></span></a>Fork a repo or generate a pull request</h3>
+<a id="fork-a-repo-or-generate-a-pull-request" class="anchor" href="#fork-a-repo-or-generate-a-pull-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fork a repo or generate a pull request</h3>
 
 <p>If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request.
 If you need help on this, you can contact for example the person who has done the latest commits to that repository.</p>
 
 <h3>
-<a name="license-to-be-used" class="anchor" href="#license-to-be-used"><span class="octicon octicon-link"></span></a>License to be used</h3>
+<a id="license-to-be-used" class="anchor" href="#license-to-be-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>License to be used</h3>
 
 <p>Currently we want each plugin to have the following license information maintained:</p>
 
@@ -67,18 +67,26 @@ apply plugin: "com.github.hierynomus.license"
 </code></pre>
 
 <h3>
-<a name="continuous-integration" class="anchor" href="#continuous-integration"><span class="octicon octicon-link"></span></a>Continuous Integration</h3>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Continuous Integration</h3>
+
+<h4>
+<a id="travis-ci" class="anchor" href="#travis-ci" aria-hidden="true"><span class="octicon octicon-link"></span></a>Travis CI</h4>
 
 <p>We use travis ci as Continuous Integration tool. You can simply browse to <a href="https://travis-ci.org">https://travis-ci.org</a> and login via your github account. Once logged in, you'll see all our community plugins being build. The configuration for that can be found in the <code>.travis.yml</code> file within each repository.
-More information can be found at <a href="http://docs.travis-ci.com/">http://docs.travis-ci.com/</a></p>
+More information can be found at <a href="http://docs.travis-ci.com/">http://docs.travis-ci.com/</a>. Please also configure hipchat notifications as described in here: <a href="http://docs.travis-ci.com/user/notifications/#HipChat-notification">http://docs.travis-ci.com/user/notifications/#HipChat-notification</a> (TravisCI room) and github releases as described here: <a href="http://docs.travis-ci.com/user/deployment/releases/">http://docs.travis-ci.com/user/deployment/releases/</a>.</p>
+
+<h4>
+<a id="buildhive" class="anchor" href="#buildhive" aria-hidden="true"><span class="octicon octicon-link"></span></a>BuildHive</h4>
+
+<p>As an alternative you can also use BuildHive (Jenkins in the Cloud for open source). <a href="https://buildhive.cloudbees.com">https://buildhive.cloudbees.com</a> although using BuildHive it is probably not possible to integrate with HipChat and send releases back to GitHub.</p>
 
 <h3>
-<a name="use-a-gradle-wrapper" class="anchor" href="#use-a-gradle-wrapper"><span class="octicon octicon-link"></span></a>Use a gradle wrapper</h3>
+<a id="use-a-gradle-wrapper" class="anchor" href="#use-a-gradle-wrapper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use a gradle wrapper</h3>
 
 <p>An example usage of a gradle wrapper can be found in the xld-cloudfoundry-plugin repository. Using a gradle wrapper makes sure we are always using the same gradle version, also on Travis. You can copy the example wrapper from the xld-cloudfoundry-plugin repository or create one yourself using <code>gradle wrapper</code>.</p>
 
 <h3>
-<a name="release-your-plugin" class="anchor" href="#release-your-plugin"><span class="octicon octicon-link"></span></a>Release your plugin</h3>
+<a id="release-your-plugin" class="anchor" href="#release-your-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release your plugin</h3>
 
 <p>Make sure you follow these steps</p>
 
@@ -92,7 +100,7 @@ More information can be found at <a href="http://docs.travis-ci.com/">http://doc
 </ul>
 
 <h3>
-<a name="rules-to-follow" class="anchor" href="#rules-to-follow"><span class="octicon octicon-link"></span></a>Rules to follow</h3>
+<a id="rules-to-follow" class="anchor" href="#rules-to-follow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rules to follow</h3>
 
 <ul>
 <li>Each repository must have the license somewhere included</li>
