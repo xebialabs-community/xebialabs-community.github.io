@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <title>Xebialabs-community.github.io by xebialabs-community</title>
@@ -27,32 +27,32 @@
     <div class="container">
       <section id="main_content">
         <h3>
-<a id="welcome-to-xebialabs-community-plugins" class="anchor" href="#welcome-to-xebialabs-community-plugins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to XebiaLabs community plugins</h3>
+<a id="welcome-to-xebialabs-community-plugins" class="anchor" href="#welcome-to-xebialabs-community-plugins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to XebiaLabs Community plugins</h3>
 
-<p>This page describes how you can contribute to XebiaLabs community plugins, where continuous integration is located, and which steps to follow when releasing your community plugin.</p>
+<p>This page describes how you can contribute to the XebiaLabs Community plugins, where the continuous integration is located and what steps to follow to release your community plugin.</p>
 
 <h3>
 <a id="join-the-xebialabs-community-organization" class="anchor" href="#join-the-xebialabs-community-organization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Join the xebialabs-community organization</h3>
 
-<p>Create a <a href="https://github.com/join">GitHub account</a> and request to join the organization by sending an email to <a href="mailto:jdewinne@xebialabs.com">jdewinne@xebialabs.com</a>.</p>
+<p>Create a github account, and request to join the organization by sending an email to <a href="mailto:jdewinne@xebialabs.com">jdewinne@xebialabs.com</a>.</p>
 
 <h3>
-<a id="fork-a-repo-or-generate-a-pull-request" class="anchor" href="#fork-a-repo-or-generate-a-pull-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fork a repository or generate a pull request</h3>
+<a id="fork-a-repo-or-generate-a-pull-request" class="anchor" href="#fork-a-repo-or-generate-a-pull-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fork a repo or generate a pull request</h3>
 
-<p>If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request.
-If you need help, try contacting the person who last committed to that repository.</p>
+<p>If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request.
+If you need help on this, you can contact for example the person who has done the latest commits to that repository.</p>
 
 <h3>
-<a id="license-to-be-used" class="anchor" href="#license-to-be-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>License to use</h3>
+<a id="license-to-be-used" class="anchor" href="#license-to-be-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>License to be used</h3>
 
-<p>Each plugin must include the following license information:</p>
+<p>Currently we want each plugin to have the following license information maintained:</p>
 
 <pre><code>THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR 
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS 
 FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 </code></pre>
 
-<p>You can easily include this information by using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a>.</p>
+<p>This can easily be done using the gradle license plugin <a href="https://github.com/hierynomus/license-gradle-plugin">https://github.com/hierynomus/license-gradle-plugin</a></p>
 
 <pre><code>buildscript {
   repositories {
@@ -67,44 +67,49 @@ apply plugin: "com.github.hierynomus.license"
 </code></pre>
 
 <h3>
-<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Continuous integration</h3>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Continuous Integration</h3>
 
 <h4>
 <a id="travis-ci" class="anchor" href="#travis-ci" aria-hidden="true"><span class="octicon octicon-link"></span></a>Travis CI</h4>
 
-<p>The XebiaLabs community plugins use Travis CI as a continuous integration tool. Go to <a href="https://travis-ci.org">the Travis CI website</a> and log in with your GitHub account. After you log in, you will see the community plugins that are being built. You can find the configuration for Travis CI in the <code>.travis.yml</code> file in each repository. For more information, refer to the <a href="http://docs.travis-ci.com/">Travis CI documentation</a>.</p>
-<p>Also, please configure <a href="http://docs.travis-ci.com/user/notifications/#HipChat-notification">HipChat notifications</a> (TravisCI room) and <a href="http://docs.travis-ci.com/user/deployment/releases/">GitHub releases</a>.</p>
+<p>We use travis ci as Continuous Integration tool. You can simply browse to <a href="https://travis-ci.org">https://travis-ci.org</a> and login via your github account. Once logged in, you'll see all our community plugins being build. The configuration for that can be found in the <code>.travis.yml</code> file within each repository.
+More information can be found at <a href="http://docs.travis-ci.com/">http://docs.travis-ci.com/</a>. Please also configure hipchat notifications as described in here: <a href="http://docs.travis-ci.com/user/notifications/#HipChat-notification">http://docs.travis-ci.com/user/notifications/#HipChat-notification</a> (TravisCI room) and github releases as described here: <a href="http://docs.travis-ci.com/user/deployment/releases/">http://docs.travis-ci.com/user/deployment/releases/</a>.</p>
 
 <h4>
 <a id="buildhive" class="anchor" href="#buildhive" aria-hidden="true"><span class="octicon octicon-link"></span></a>BuildHive</h4>
 
-<p>Alternatively, you can use <a href="https://buildhive.cloudbees.com">BuildHive</a> (Jenkins in the Cloud for open source); however, it may not be possible to integrate with HipChat or send releases to GitHub.</p>
+<p>As an alternative you can also use BuildHive (Jenkins in the Cloud for open source). <a href="https://buildhive.cloudbees.com">https://buildhive.cloudbees.com</a> although using BuildHive it is probably not possible to integrate with HipChat and send releases back to GitHub.</p>
 
 <h3>
-<a id="use-a-gradle-wrapper" class="anchor" href="#use-a-gradle-wrapper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use a Gradle wrapper</h3>
+<a id="use-a-gradle-wrapper" class="anchor" href="#use-a-gradle-wrapper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use a gradle wrapper</h3>
 
-<p>You can find an example of a Gradle wrapper in the <a href="https://github.com/xebialabs-community/xld-cloud-foundry-plugin">xld-cloud-foundry-plugin repository</a>. Using a Gradle wrapper ensures that a consistent Gradle version is used, including on Travis CI. You can copy the sample wrapper from the xld-cloud-foundry-plugin repository or create your own using <code>gradle wrapper</code>.</p>
+<p>An example usage of a gradle wrapper can be found in the xld-cloudfoundry-plugin repository. Using a gradle wrapper makes sure we are always using the same gradle version, also on Travis. You can copy the example wrapper from the xld-cloudfoundry-plugin repository or create one yourself using <code>gradle wrapper</code>.</p>
 
 <h3>
 <a id="release-your-plugin" class="anchor" href="#release-your-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release your plugin</h3>
 
-<p>To release your plugin:</p>
+<p>Make sure you follow these steps</p>
 
 <ul>
-<li>Update the <code>build.gradle</code> file to contain the new version number.</li>
-<li>Update the <code>.travis.yml</code> file to contain the new version number.</li>
-<li>Create a new tag; for example, <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>.</li>
-<li>Push the tag to GitHub: <code>git push --tags</code>.</li>
+<li>Update the <code>build.gradle</code> file to contain the new version number</li>
+<li>Update the <code>.travis.yml</code> file to contain the new version number</li>
+<li>Create a new tag. Example <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>
+</li>
+<li>Push the tag to github: <code>git push --tags</code>
+</li>
 </ul>
 
 <h3>
 <a id="rules-to-follow" class="anchor" href="#rules-to-follow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rules to follow</h3>
 
 <ul>
-<li>Each repository must include the license</li>
-<li>If your repository is a plugin, its name should end with <code>plugin</code></li>
-<li>If your repository is a plugin for XL Deploy, its name should start with <code>xld</code></li>
-<li>If your repository is a plugin for XL Release, its name should start with <code>xlr</code></li>
+<li>Each repository must have the license somewhere included</li>
+<li>If your repository is a plugin, the repo name should end with <code>plugin</code>
+</li>
+<li>If your repository is a plugin for XL Deploy, it should start with <code>xld</code>
+</li>
+<li>If your repository is a plugin for XL Release, it should start with <code>xlr</code>
+</li>
 </ul>
       </section>
     </div>
