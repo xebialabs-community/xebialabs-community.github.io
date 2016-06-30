@@ -59,3 +59,10 @@ Make sure you follow these steps
 * If your repository is a plugin, the repository name should end with `plugin`.
 * If your repository is a plugin for XL Deploy, the repository name should start with `xld`.
 * If your repository is a plugin for XL Release, the repository name should start with `xlr`.
+
+### Extra information
+
+* [XebiaLabs website](https://xebialabs.com/)
+* [XebiaLabs documentation](https://docs.xebialabs.com/)
+* [XebiaLabs support](https://support.xebialabs.com)
+* [XebiaLabs community](https://github.com/xebialabs-community)
