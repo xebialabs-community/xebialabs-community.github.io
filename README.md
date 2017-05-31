@@ -32,6 +32,17 @@ license {
 }
 ```
 
+### Dependencies
+We have a public artifact repository which can be used by gradle or maven to fetch dependencies. It can be found here `https://dist.xebialabs.com/public/maven2`. For example this is how to configure gradle to use it:
+
+```
+repositories {
+  ...
+  maven {
+    url 'http://dist.xebialabs.com/public/maven2'
+  }
+}
+```
 
 ### Continuous Integration
 #### Travis CI
