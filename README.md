@@ -9,26 +9,30 @@ If you want to contribute to an existing repository, simply fork the repository,
 If you need help with this, you can contact for example the person who last committed to that repository.
 
 ### License to be used
-XebiaLabs requires each plugin to include the following license information:
+XebiaLabs requires each plugin to include the following [license information](https://opensource.org/licenses/MIT):
 
 ```
-THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS 
-FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+Copyright <YEAR> <COPYRIGHT HOLDER>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 This can easily be done using the [Gradle license plugin](https://github.com/hierynomus/license-gradle-plugin)
 
 ```
 plugins {
-    id "com.github.hierynomus.license" version "0.12.1"
+    id "com.github.hierynomus.license" version "0.13.1"
 }
-
 ...
-
 license {
-    header rootProject.file('src/main/license/xebialabs_community.license')
-    strictCheck true
+  header rootProject.file('License.md')
+  strictCheck false
+  ext.year = Calendar.getInstance().get(Calendar.YEAR)
+  ext.name = 'XEBIALABS'
 }
 ```
 
@@ -64,12 +68,15 @@ Make sure you follow these steps
 * Create a new tag. Example `git tag -a v4.5.2 -m 'Version 4.5.2' 373159`.
 * Push the tag to github: `git push --follow-tags`.
 
-### Rules to follow
+### Rules to follow - DoD
 
-* Each repository must include the license.
+* Each repository must include the MIT license.
+* Each repository must have a description.
+* Each respository must have 1 or more github topics defined.
 * If your repository is a plugin, the repository name should end with `plugin`.
 * If your repository is a plugin for XL Deploy, the repository name should start with `xld`.
 * If your repository is a plugin for XL Release, the repository name should start with `xlr`.
+* Each repository must have public CI enabled (Travis, CircleCI or other) and the corresponding badge in the README.md.
 
 ### Extra information
 
