@@ -24,42 +24,49 @@
 
     <div class="container">
       <section id="main_content">
-        <h3 id="welcome-to-xebialabs-community-plugins"><a name="user-content-welcome-to-xebialabs-community-plugins" href="#welcome-to-xebialabs-community-plugins" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Welcome to XebiaLabs Community plugins</h3>
+<h3 id="welcome-to-xebialabs-community-plugins">Welcome to XebiaLabs Community plugins</h3>
 <p>This page describes how you can contribute to the <a href="https://xebialabs.com/">XebiaLabs</a> community plugins, where the continuous integration is located and what steps to follow to release your community plugin.</p>
-<h3 id="join-the-xebialabs-community-organization"><a name="user-content-join-the-xebialabs-community-organization" href="#join-the-xebialabs-community-organization" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Join the xebialabs-community organization</h3>
-<p>Create a <a href="https://github.com/join">GitHub</a> account, and request to join the organization by sending an email to <a href="mailto:jdewinne@xebialabs.com">jdewinne@xebialabs.com</a>.</p>
-<h3 id="fork-a-repo-or-generate-a-pull-request"><a name="user-content-fork-a-repo-or-generate-a-pull-request" href="#fork-a-repo-or-generate-a-pull-request" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Fork a repo or generate a pull request</h3>
-<p>If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request.<br />
-If you need help with this, you can contact for example the person who last committed to that repository.</p>
-<h3 id="license-to-be-used"><a name="user-content-license-to-be-used" href="#license-to-be-used" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>License to be used</h3>
-<p>XebiaLabs requires each plugin to include the following license information:</p>
-<pre><code>THIS CODE AND INFORMATION ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS 
-FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
-</code></pre>
+<h3 id="join-the-xebialabs-community-organization">Join the xebialabs-community organization</h3>
+<p>Create a <a href="https://github.com/join">GitHub</a> account, and request to join the organization by sending an email to jdewinne@xebialabs.com.</p>
+<h3 id="fork-a-repo-or-generate-a-pull-request">Fork a repo or generate a pull request</h3>
+<p>If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request. If you need help with this, you can contact for example the person who last committed to that repository.</p>
+<h3 id="license-to-be-used">License to be used</h3>
+<p>XebiaLabs requires each plugin to include the following <a href="https://opensource.org/licenses/MIT">license information</a>:</p>
+<pre><code>Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;
 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
 <p>This can easily be done using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a></p>
 <pre><code>plugins {
-    id &quot;com.github.hierynomus.license&quot; version &quot;0.12.1&quot;
+    id &quot;com.github.hierynomus.license&quot; version &quot;0.13.1&quot;
 }
-
 ...
-
 license {
-    header rootProject.file('src/main/license/xebialabs_community.license')
-    strictCheck true
-}
-</code></pre>
-
-<h3 id="continuous-integration"><a name="user-content-continuous-integration" href="#continuous-integration" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Continuous Integration</h3>
-<h4 id="travis-ci"><a name="user-content-travis-ci" href="#travis-ci" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Travis CI</h4>
-<p>XebiaLabs uses Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you&rsquo;ll see the community plugins being built. The build configuration is located in the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
+  header rootProject.file(&#39;License.md&#39;)
+  strictCheck false
+  ext.year = Calendar.getInstance().get(Calendar.YEAR)
+  ext.name = &#39;XEBIALABS&#39;
+}</code></pre>
+<h3 id="dependencies">Dependencies</h3>
+<p>We have a public artifact repository which can be used by gradle or maven to fetch dependencies. It can be found here <code>https://dist.xebialabs.com/public/maven2</code>. For example this is how to configure gradle to use it:</p>
+<pre><code>repositories {
+  ...
+  maven {
+    url &#39;http://dist.xebialabs.com/public/maven2&#39;
+  }
+}</code></pre>
+<h3 id="continuous-integration">Continuous Integration</h3>
+<h4 id="travis-ci">Travis CI</h4>
+<p>XebiaLabs uses Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is located in the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
 <p>Please also configure <a href="https://hipchat.com/">HipChat</a> notifications as described <a href="http://docs.travis-ci.com/user/notifications/#HipChat-notification">here</a> (TravisCI room) and GitHub releases as described <a href="http://docs.travis-ci.com/user/deployment/releases/">here</a>.</p>
-<h4 id="circle-ci"><a name="user-content-circle-ci" href="#circle-ci" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Circle CI</h4>
+<h4 id="circle-ci">Circle CI</h4>
 <p>As an alternative you can also use Circle CI.</p>
-<h3 id="use-a-gradle-wrapper"><a name="user-content-use-a-gradle-wrapper" href="#use-a-gradle-wrapper" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use a gradle wrapper</h3>
+<h3 id="use-a-gradle-wrapper">Use a gradle wrapper</h3>
 <p>Using a Gradle wrapper ensures that the same Gradle version is used (including on Travis CI). An example usage of a Gradle wrapper can be found in <a href="https://github.com/xebialabs-community/xld-openshift-plugin">the xld-openshift-plugin repository</a>. You can copy the example wrapper or create one yourself using <code>gradle wrapper</code>.</p>
-<h3 id="release-your-plugin"><a name="user-content-release-your-plugin" href="#release-your-plugin" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Release your plugin</h3>
+<h3 id="release-your-plugin">Release your plugin</h3>
 <p>Make sure you follow these steps</p>
 <ul>
 <li>Update the <code>build.gradle</code> file to contain the new version number.</li>
@@ -67,14 +74,17 @@ license {
 <li>Create a new tag. Example <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>.</li>
 <li>Push the tag to github: <code>git push --follow-tags</code>.</li>
 </ul>
-<h3 id="rules-to-follow"><a name="user-content-rules-to-follow" href="#rules-to-follow" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Rules to follow</h3>
+<h3 id="rules-to-follow---dod">Rules to follow - DoD</h3>
 <ul>
-<li>Each repository must include the license.</li>
+<li>Each repository must include the MIT license.</li>
+<li>Each repository must have a description.</li>
+<li>Each respository must have 1 or more github topics defined.</li>
 <li>If your repository is a plugin, the repository name should end with <code>plugin</code>.</li>
 <li>If your repository is a plugin for XL Deploy, the repository name should start with <code>xld</code>.</li>
 <li>If your repository is a plugin for XL Release, the repository name should start with <code>xlr</code>.</li>
+<li>Each repository must have public CI enabled (Travis, CircleCI or other) and the corresponding badge in the README.md.</li>
 </ul>
-<h3 id="extra-information"><a name="user-content-extra-information" href="#extra-information" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extra information</h3>
+<h3 id="extra-information">Extra information</h3>
 <ul>
 <li><a href="https://xebialabs.com/">XebiaLabs website</a></li>
 <li><a href="https://docs.xebialabs.com/">XebiaLabs documentation</a></li>
