@@ -5,7 +5,7 @@ This page describes how you can contribute to the [XebiaLabs](https://xebialabs.
 Create a [GitHub](https://github.com/join) account, and request to join the organization by sending an email to jdewinne@xebialabs.com.
 
 ### Fork a repo or generate a pull request
-If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request.
+If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request.
 If you need help with this, you can contact for example the person who last committed to that repository.
 
 ### License to be used
@@ -21,7 +21,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-This can easily be done using the [Gradle license plugin](https://github.com/hierynomus/license-gradle-plugin)
+This can easily be done using the [Gradle license plugin](https://github.com/hierynomus/license-gradle-plugin):
 
 ```
 plugins {
@@ -37,7 +37,7 @@ license {
 ```
 
 ### Dependencies
-We have a public artifact repository which can be used by gradle or maven to fetch dependencies. It can be found here `https://dist.xebialabs.com/public/maven2`. For example this is how to configure gradle to use it:
+We have a public artifact repository which Gradle or Maven can use to fetch dependencies. It is located at <a href="https://dist.xebialabs.com/public/maven2">https://dist.xebialabs.com/public/maven2</a>. For example, to configure Gradle to use it:
 
 ```
 repositories {
@@ -55,9 +55,9 @@ XebiaLabs uses Travis CI for continuous integration. Go to [Travis CI](https://t
 Please also configure [HipChat](https://hipchat.com/) notifications as described [here](http://docs.travis-ci.com/user/notifications/#HipChat-notification) (TravisCI room) and GitHub releases as described [here](http://docs.travis-ci.com/user/deployment/releases/).
 
 #### Circle CI
-As an alternative you can also use Circle CI.
+As an alternative, you can use Circle CI.
 
-### Use a gradle wrapper
+### Use a Gradle wrapper
 Using a Gradle wrapper ensures that the same Gradle version is used (including on Travis CI). An example usage of a Gradle wrapper can be found in [the xld-openshift-plugin repository](https://github.com/xebialabs-community/xld-openshift-plugin). You can copy the example wrapper or create one yourself using `gradle wrapper`.
 
 ### Release your plugin
@@ -65,18 +65,18 @@ Make sure you follow these steps
 
 * Update the `build.gradle` file to contain the new version number.
 * Update the `.travis.yml` file to contain the new version number.
-* Create a new tag. Example `git tag -a v4.5.2 -m 'Version 4.5.2' 373159`.
-* Push the tag to github: `git push --follow-tags`.
+* Create a new tag. For example: `git tag -a v4.5.2 -m 'Version 4.5.2' 373159`.
+* Push the tag to GitHub: `git push --follow-tags`.
 
-### Rules to follow - DoD
+### Rules to follow - Definition of Done
 
 * Each repository must include the MIT license.
 * Each repository must have a description.
-* Each respository must have 1 or more github topics defined.
+* Each repository must have one or more GitHub topics defined.
 * If your repository is a plugin, the repository name should end with `plugin`.
 * If your repository is a plugin for XL Deploy, the repository name should start with `xld`.
 * If your repository is a plugin for XL Release, the repository name should start with `xlr`.
-* Each repository must have public CI enabled (Travis, CircleCI or other) and the corresponding badge in the README.md.
+* Each repository must have public CI enabled (Travis, CircleCI, or other) and the corresponding badge in the `README.md` file.
 
 ### Extra information
 

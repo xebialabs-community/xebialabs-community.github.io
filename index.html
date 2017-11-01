@@ -13,7 +13,7 @@
 
     <header>
       <div class="container">
-        <img src="images/logo.png" alt="XebiaLabs" class="logo"><br />
+        <img src="images/logo.jpg" alt="XebiaLabs" class="logo"><br />
         <h1>XebiaLabs Community Plugins</h1>
 
         <section id="downloads">
@@ -29,7 +29,7 @@
 <h3 id="join-the-xebialabs-community-organization">Join the xebialabs-community organization</h3>
 <p>Create a <a href="https://github.com/join">GitHub</a> account, and request to join the organization by sending an email to jdewinne@xebialabs.com.</p>
 <h3 id="fork-a-repo-or-generate-a-pull-request">Fork a repo or generate a pull request</h3>
-<p>If you want to contribute to an existing repository, simply fork the repository, make your changes and send a pull request. If you need help with this, you can contact for example the person who last committed to that repository.</p>
+<p>If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request. If you need help with this, you can contact for example the person who last committed to that repository.</p>
 <h3 id="license-to-be-used">License to be used</h3>
 <p>XebiaLabs requires each plugin to include the following <a href="https://opensource.org/licenses/MIT">license information</a>:</p>
 <pre><code>Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;
@@ -39,7 +39,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
-<p>This can easily be done using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a></p>
+<p>This can easily be done using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a>:</p>
 <pre><code>plugins {
     id &quot;com.github.hierynomus.license&quot; version &quot;0.13.1&quot;
 }
@@ -51,7 +51,7 @@ license {
   ext.name = &#39;XEBIALABS&#39;
 }</code></pre>
 <h3 id="dependencies">Dependencies</h3>
-<p>We have a public artifact repository which can be used by gradle or maven to fetch dependencies. It can be found here <code>https://dist.xebialabs.com/public/maven2</code>. For example this is how to configure gradle to use it:</p>
+<p>We have a public artifact repository which Gradle or Maven can use to fetch dependencies. It is located at <a href="https://dist.xebialabs.com/public/maven2">https://dist.xebialabs.com/public/maven2</a>. For example, to configure Gradle to use it:</p>
 <pre><code>repositories {
   ...
   maven {
@@ -63,26 +63,26 @@ license {
 <p>XebiaLabs uses Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is located in the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
 <p>Please also configure <a href="https://hipchat.com/">HipChat</a> notifications as described <a href="http://docs.travis-ci.com/user/notifications/#HipChat-notification">here</a> (TravisCI room) and GitHub releases as described <a href="http://docs.travis-ci.com/user/deployment/releases/">here</a>.</p>
 <h4 id="circle-ci">Circle CI</h4>
-<p>As an alternative you can also use Circle CI.</p>
-<h3 id="use-a-gradle-wrapper">Use a gradle wrapper</h3>
+<p>As an alternative, you can use Circle CI.</p>
+<h3 id="use-a-gradle-wrapper">Use a Gradle wrapper</h3>
 <p>Using a Gradle wrapper ensures that the same Gradle version is used (including on Travis CI). An example usage of a Gradle wrapper can be found in <a href="https://github.com/xebialabs-community/xld-openshift-plugin">the xld-openshift-plugin repository</a>. You can copy the example wrapper or create one yourself using <code>gradle wrapper</code>.</p>
 <h3 id="release-your-plugin">Release your plugin</h3>
-<p>Make sure you follow these steps</p>
+<p>Ensure that you follow these steps:</p>
 <ul>
 <li>Update the <code>build.gradle</code> file to contain the new version number.</li>
 <li>Update the <code>.travis.yml</code> file to contain the new version number.</li>
-<li>Create a new tag. Example <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>.</li>
-<li>Push the tag to github: <code>git push --follow-tags</code>.</li>
+<li>Create a new tag. For example: <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>.</li>
+<li>Push the tag to GitHub: <code>git push --follow-tags</code>.</li>
 </ul>
-<h3 id="rules-to-follow---dod">Rules to follow - DoD</h3>
+<h3 id="rules-to-follow---dod">Rules to follow - Definition of Done</h3>
 <ul>
 <li>Each repository must include the MIT license.</li>
 <li>Each repository must have a description.</li>
-<li>Each respository must have 1 or more github topics defined.</li>
+<li>Each respository must have one or more GitHub topics defined.</li>
 <li>If your repository is a plugin, the repository name should end with <code>plugin</code>.</li>
 <li>If your repository is a plugin for XL Deploy, the repository name should start with <code>xld</code>.</li>
 <li>If your repository is a plugin for XL Release, the repository name should start with <code>xlr</code>.</li>
-<li>Each repository must have public CI enabled (Travis, CircleCI or other) and the corresponding badge in the README.md.</li>
+<li>Each repository must have public CI enabled (Travis, CircleCI, or other) and the corresponding badge in the <code>README.md</code> file.</li>
 </ul>
 <h3 id="extra-information">Extra information</h3>
 <ul>
@@ -94,6 +94,6 @@ license {
       </section>
     </div>
 
-    
+
   </body>
 </html>
