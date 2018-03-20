@@ -60,13 +60,72 @@ As an alternative, you can use Circle CI.
 ### Use a Gradle wrapper
 Using a Gradle wrapper ensures that the same Gradle version is used (including on Travis CI). An example usage of a Gradle wrapper can be found in [the xld-openshift-plugin repository](https://github.com/xebialabs-community/xld-openshift-plugin). You can copy the example wrapper or create one yourself using `gradle wrapper`.
 
-### Release your plugin
+### Release your plugin (general outline)
 Make sure you follow these steps
 
 * Update the `build.gradle` file to contain the new version number.
 * Update the `.travis.yml` file to contain the new version number.
 * Create a new tag. For example: `git tag -a v4.5.2 -m 'Version 4.5.2' 373159`.
 * Push the tag to GitHub: `git push --follow-tags`.
+
+### Release your plugin with Gradle, Nebula, and Travis
+
+Nebula eliminates the need to set and/or change the version number in the Gradle file.  The Travis build will use the version number set in the commit tag.  The tags in the repo must be set appropriately by the developer for a major, minor, or patch release using the Nebula conventions.
+
+#### Check that existing tags meet Nebula conventions.  
+* The tag format should be vx.y.z, where x = major release number, y = minor release number, z = patch level.  See the Semantic Versioning reference at <https://semver.org>.
+
+#### Edit the .travis.yml file.  
+* If the api_key credentials are not your own, set yours with ```travis setup releases --force```.  
+* The Travis gem can be installed with ```gem install -v 1.7.5 --no-rdoc --no-ri travis```.  
+* Add ```file_glob:  true``` to allow wildcards in the file: argument(s).  
+* Set or change file to ```build/distributions/*``` or ```build/libs/*```.  The argument can point to a single file (with or without wildcards) or list of files in yml notation.
+* Add ```skip_cleanup:  true```, so the cleanup doesn't delete the file to be uploaded.
+* Add ```on:``` block  
+```all_branches:  true```    
+```tags:  true```  
+```repo:  repo-owner/repo-name```  
+
+* Also, ```before_deploy:``` and ```after_deploy:``` blocks are available to run scripts before/after release is pushed.
+* Turn on the repository switch for the repo at https://travis-ci.org/profile/xebialabs-community.
+
+* Example:
+
+```
+deploy:
+  provider:  releases
+  api_key:
+    secure:  ...
+  file_glob:  true
+  file:  build/distributions/*
+  skip_cleanup:  true
+  on:
+    all_branches:  true
+    tags:  true
+    repo:  repo-owner/repo-name
+```
+
+#### Edit the build.gradle file.
+* Add ```id 'nebula.release' version '6.0.0'``` to ```plugins```.
+* Remove the hardcoded version assignment if present.
+* Add scope and useLastTag logic.  Note, if it appears that Gradle is not processing these lines, move them higher in the build.gradle file.  See the history of the build.gradle file in <https://github.com/xebialabs-community/xlr-ansible-tower-plugin> for an example.
+  
+```
+if (!project.hasProperty('release.scope')) {
+  project.ext['release.scope'] = 'patch'
+}
+if (!project.hasProperty('release.useLastTag')) {
+  project.ext['release.useLastTag'] = true
+}
+```
+
+* Confirm a successful build in your local directory with ```./gradlew build``.
+* Commit all pending changes in your local directory.
+* Execute ```git push```.
+* Set the appropriate tag, e.g., ```git tag -a "v1.3.0" -m "Version 1.3.0"```.
+* Execute ```git push --follow-tags```.
+* Each push will trigger a Travis job; the second job will add the files listed to the repository's Releases page.
+
 
 ### Rules to follow - Definition of Done
 
