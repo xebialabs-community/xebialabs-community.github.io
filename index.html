@@ -171,11 +171,11 @@
             class="uri">https://github.com/xebialabs-community/xlr-ansible-tower-plugin</a> for an example.</li>
       </ul>
       <pre><code>if (!project.hasProperty(&#39;release.scope&#39;)) {
-          project.ext[&#39;release.scope&#39;] = &#39;patch&#39;
-        }
-        if (!project.hasProperty(&#39;release.useLastTag&#39;)) {
-          project.ext[&#39;release.useLastTag&#39;] = true
-        }</code></pre>
+        project.ext[&#39;release.scope&#39;] = &#39;patch&#39;
+      }
+      if (!project.hasProperty(&#39;release.useLastTag&#39;)) {
+        project.ext[&#39;release.useLastTag&#39;] = true
+      }</code></pre>
       <ul>
         <li>Confirm a successful build in your local directory with `
           <code>./gradlew build</code>.</li>
