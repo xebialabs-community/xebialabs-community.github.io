@@ -2,7 +2,7 @@
 This page describes how you can contribute to the [XebiaLabs](https://xebialabs.com/) community plugins, where the continuous integration is located and what steps to follow to release your community plugin.
 
 ### Join the xebialabs-community organization
-Create a [GitHub](https://github.com/join) account, and request to join the organization by sending an email to jdewinne@xebialabs.com.
+Create a [GitHub](https://github.com/join) account, and request to join the organization by sending an email to rbroker@xebialabs.com and amohleji@xebialabs.com.
 
 ### Fork a repo or generate a pull request
 If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request.
