@@ -2,7 +2,7 @@
 
 cp top.html test.html
 #python -m markdown README.md >> test.html
-md-to-html [-h] --input README.md --output x.html
+md-to-html --input README.md --output x.html
 cat x.html >> test.html
 rm x.html
 cat bottom.html >> test.html
