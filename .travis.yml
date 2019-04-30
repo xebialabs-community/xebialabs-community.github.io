@@ -9,4 +9,4 @@ install:
   - cp top.html test.html
   - python -m markdown README.md >> test.html
   - cat bottom.html >> test.html
-  
+  - cat test.html
