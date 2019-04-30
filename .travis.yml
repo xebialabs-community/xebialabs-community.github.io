@@ -1,6 +1,9 @@
 language: python
 python:
 - pypy
+branches:
+  only:
+  - development
 install:
 - pip install markdown
 - pip install Pygments
