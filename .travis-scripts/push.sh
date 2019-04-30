@@ -3,6 +3,7 @@
 set -x
 
 setup_git() {
+  git config credential.helper 'cache --timeout=120'
   git config --global user.email "rbroker@xebialabs.com"
   git config --global user.name "Travis CI"
 }
