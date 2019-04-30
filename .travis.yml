@@ -5,6 +5,7 @@ branches:
   only:
   - development
 install:
+- pip install md-to-html
 - pip install markdown
 - pip install Pygments
 script:
