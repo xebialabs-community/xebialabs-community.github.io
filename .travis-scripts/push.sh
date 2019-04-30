@@ -15,8 +15,9 @@ commit_website_files() {
 
 upload_files() {
   #git remote add origin-pages https://${GH_TOKEN}@github.com/zvercodebender/xebialabs-community.github.io.git > /dev/null 2>&1
-  git remote add origin https://oauth2:${GH_TOKEN}@github.com/zvercodebender/xebialabs-community.github.io.git
-  git push origin HEAD:master
+  #git remote add origin https://oauth2:${GH_TOKEN}@github.com/zvercodebender/xebialabs-community.github.io.git
+  #git push origin HEAD:master
+  git push -q https://${GH_TOKEN}@github.com/zvercodebender/xebialabs-community.git master
 }
 
 setup_git
