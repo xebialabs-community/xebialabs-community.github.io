@@ -1,19 +1,22 @@
 #!/bin/sh
 
+set -x
+
 setup_git() {
   git config --global user.email "rbroker@xebialabs.com"
   git config --global user.name "Travis CI"
 }
 
 commit_website_files() {
-  git checkout -b master
+  #git checkout -b master
+  git checkout
   git add . *.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
-  git remote add origin-pages https://${GH_TOKEN}@github.com/zvercodebender/xebialabs-community.github.io.git > /dev/null 2>&1
-  git push 
+  #git remote add origin-pages https://${GH_TOKEN}@github.com/zvercodebender/xebialabs-community.github.io.git > /dev/null 2>&1
+  git push
 }
 
 setup_git
