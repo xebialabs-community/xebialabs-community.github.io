@@ -5,9 +5,9 @@ branches:
   only:
   - development
 install:
-- pip install md-to-html
-#- pip install markdown
-#- pip install Pygments
+#- pip install md-to-html
+- pip install markdown
+- pip install Pygments
 script:
 - ".travis-scripts/make"
 #after_success:
