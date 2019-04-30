@@ -13,8 +13,9 @@ deploy:
   skip_cleanup: true
   github_token: $TRAVIS_PUSH  # Set in the settings page of your repository, as a secure variable
   keep_history: true
+  target_branch: master
   on:
-    branch: master
+    branch: development
 env:
   global:
   - secure: NLpl6jyuzsV1VSlozTjpnY9jYAbcfLL0ogfEBfhXFz6iVa3Kt7cnClVhPPglFoCSltGimCmfly8WhsEjLqBTd+466S/mLlFABo3XZ5H7A/bO4DMqdLDqoR8oFWpF+tKMTHZdBgUntUsqlSklicTlDEn3A9QUcLimu/528YikLI32rzd8SFk7QX04rldAdctZW7MJ8fpgzh38sUVgjPsUWe5zdYmKCE41Jx+ln4tHcI858YSk0bBcQP2zjgMF2d+A6YNtemXQ+7u+K+qgDSIujkwFb/c0ZZGFWfslQwl8G19o+V63+8U5cz1oHv7apTa44VzvA6Cgjpzft4D/vrcN9ccVtT9bvL/cKYTbR/MNl0GXpbd0ULO32KD40xVvlWYFj0RojaosaiVbWaraoWyobVDPrjz+dD1ysngPXCAWStC7ksYGL6jhdaE2h5AeY2lYf3XgFluHKMc/dz+yMGr+e+9GEuOMiM7Nuks5jOhJuU+IQ0DXCfmxUswTLLk5EbdMZmN8j3HCAXrYRZvhX1Bxwc4uKkwjm8BG+iO3QvSXxOM5swfe8jwArr3igRVvpbVTHBnI3Ay6u16AWWTTpzMw3NrhlKJWg0689RkndNym8pNpO4i256+sqeM26iN5noqRi50/Xo8w+MrQzMRTJx4TG+XV2GXRgvHaUJmN9kaQLlQ=
