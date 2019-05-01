@@ -1,9 +1,5 @@
 #!/bin/bash
 set -x
-cp top.html test.html
-python -m markdown2 -x fenced-code-blocks=True README.md >> test.html
-#md-to-html --input README.md --output x.html
-#cat x.html >> test.html
-#rm x.html
-cat bottom.html >> test.html
-#cat test.html
+cp top.html index.html
+python -m markdown2 -x fenced-code-blocks=True README.md >> index.html
+cat bottom.html >> index.html
