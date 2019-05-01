@@ -143,3 +143,4 @@ if (!project.hasProperty('release.useLastTag')) {
 * [XebiaLabs documentation](https://docs.xebialabs.com/)
 * [XebiaLabs support](https://support.xebialabs.com)
 * [XebiaLabs community](https://github.com/xebialabs-community)
+

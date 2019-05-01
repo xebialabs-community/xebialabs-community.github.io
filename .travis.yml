@@ -1,0 +1,22 @@
+language: python
+python:
+- pypy
+branches:
+  only:
+  - development
+install:
+- pip install markdown2
+- pip install Pygments
+script:
+- ".travis-scripts/make"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$TRAVIS_PUSH"
+  keep_history: true
+  target_branch: master
+  on:
+    branch: development
+env:
+  global:
+    secure: MBeqsJ9EtCtI8vl5H8L3STKpgZTIbVxfq2uPXjuWIF8ZxbTScJB6/2Emoe4hr/ajtbvKAb66Uoh73dk/2SZSXl9z7N9atGyCMWuT0XBFclWXB4FyTgVSCrXIWPQ+WtQrYK5uVvof4P8bcCzOFKUx2FJZEjC3m1tXskA0qI42SnE=
