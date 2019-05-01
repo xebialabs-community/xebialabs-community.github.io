@@ -6,7 +6,7 @@ branches:
   - development
 install:
 #- pip install md-to-html
-- pip install markdown
+- pip install markdown2
 - pip install Pygments
 script:
 - ".travis-scripts/make"
