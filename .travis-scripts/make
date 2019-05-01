@@ -1,0 +1,5 @@
+#!/bin/bash
+set -x
+cp top.html index.html
+python -m markdown2 -x fenced-code-blocks=True README.md >> index.html
+cat bottom.html >> index.html
