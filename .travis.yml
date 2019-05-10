@@ -5,17 +5,14 @@ branches:
   only:
   - development
 install:
-#- pip install md-to-html
 - pip install markdown2
 - pip install Pygments
 script:
 - ".travis-scripts/make"
-#after_success:
-#- ".travis-scripts/push.sh"
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $TRAVIS_PUSH  # Set in the settings page of your repository, as a secure variable
+  github_token: "$TRAVIS_PUSH"
   keep_history: true
   target_branch: master
   on:
@@ -24,3 +21,4 @@ env:
   global:
   - secure: NLpl6jyuzsV1VSlozTjpnY9jYAbcfLL0ogfEBfhXFz6iVa3Kt7cnClVhPPglFoCSltGimCmfly8WhsEjLqBTd+466S/mLlFABo3XZ5H7A/bO4DMqdLDqoR8oFWpF+tKMTHZdBgUntUsqlSklicTlDEn3A9QUcLimu/528YikLI32rzd8SFk7QX04rldAdctZW7MJ8fpgzh38sUVgjPsUWe5zdYmKCE41Jx+ln4tHcI858YSk0bBcQP2zjgMF2d+A6YNtemXQ+7u+K+qgDSIujkwFb/c0ZZGFWfslQwl8G19o+V63+8U5cz1oHv7apTa44VzvA6Cgjpzft4D/vrcN9ccVtT9bvL/cKYTbR/MNl0GXpbd0ULO32KD40xVvlWYFj0RojaosaiVbWaraoWyobVDPrjz+dD1ysngPXCAWStC7ksYGL6jhdaE2h5AeY2lYf3XgFluHKMc/dz+yMGr+e+9GEuOMiM7Nuks5jOhJuU+IQ0DXCfmxUswTLLk5EbdMZmN8j3HCAXrYRZvhX1Bxwc4uKkwjm8BG+iO3QvSXxOM5swfe8jwArr3igRVvpbVTHBnI3Ay6u16AWWTTpzMw3NrhlKJWg0689RkndNym8pNpO4i256+sqeM26iN5noqRi50/Xo8w+MrQzMRTJx4TG+XV2GXRgvHaUJmN9kaQLlQ=
   - secure: ALn3CbiGF0nkqaXCGG0pQhB1JvbXxAHAVebKzS3W8ueYXklzX6GlV4RcjOpMGDdjBYiH3hH27/kZPUV9OZuWNQHkLCSRVztBgJtcjD6DwAQqqriz47d1y81LfU8wWDDtytap0GWUXBVVGIodXwFU6mCLJJgcPkMGYTHrswZCJDcE89PWJZpo/rUWH/bFBH+8KbttXh20yZXhAZbaSBoBsW9Xw0NdHIlatBU2QvszHKEgraAqcCB3WizSA4RDRrt+2CktZcXPIghzy7RgWBGgEPTCDbDbXni4MWbWxvy6Yh+OmHn2v4rTLUSDjfdQhbwADp5jdZhcOUFlAYrnjVu+6WAVjTp5S5NnSxzt6uamE2To2BYThvwIZ6mECavWoNF4eIZc9eadeXW370mBneTcY1RhwRyfyoQ1ap8hD8ZjwrK1DYRbTiW3Vn3/oQdBvYwRuWlyPp3KukBLhw6wTadTGjP1ZbRptShRD3tpWvu1xL6MudG203rW+TmwILGsfJJp6BkDUFgKDbACjQyPLmEy633j+VMsJZcW+5rsAc2CHkwiVaZCQ/JYfWlNKdRD6vtqiKBIJXMuesr2PuNipiQ7CrudTIGyZqb3eOtXVo+eoozbb5/G/yYP9gAm11BQVzAHuG51lqaRoW2iEvyxqELKWhUTPWzXtd2c7GUseLnz37Y=
+  - secure: MBeqsJ9EtCtI8vl5H8L3STKpgZTIbVxfq2uPXjuWIF8ZxbTScJB6/2Emoe4hr/ajtbvKAb66Uoh73dk/2SZSXl9z7N9atGyCMWuT0XBFclWXB4FyTgVSCrXIWPQ+WtQrYK5uVvof4P8bcCzOFKUx2FJZEjC3m1tXskA0qI42SnE=
