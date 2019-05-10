@@ -15,7 +15,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add origin https://${TRAVIS_PUSH}@github.com/zvercodebender/xebialabs-community.github.io.git > /dev/null 2>&1
+  git remote add origin https://${TRAVIS_PUSH}@github.com/xebialabs-community/xebialabs-community.github.io.git > /dev/null 2>&1
   git push origin HEAD:master
 }
 
