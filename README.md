@@ -55,7 +55,7 @@ repositories {
 #### Travis CI
 XebiaLabs uses Travis CI for continuous integration. Go to [Travis CI](https://travis-ci.org) and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is provided by the `.travis.yml` file in each repository. More information is available at the [Travis CI documentation site](http://docs.travis-ci.com/).
 
-Please also configure [HipChat](https://hipchat.com/) notifications as described [here](http://docs.travis-ci.com/user/notifications/#HipChat-notification) (TravisCI room) and GitHub releases as described [here](http://docs.travis-ci.com/user/deployment/releases/).
+When creating the `.travis.yml` file, please configure [Slack](https://slack.com/) notifications as described [here](https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications)  and GitHub releases as described [here](http://docs.travis-ci.com/user/deployment/releases/).  Use the XebiaLabsCommunityCI system account for GitHub keys.
 
 #### Circle CI
 As an alternative, you can use Circle CI.
@@ -100,11 +100,11 @@ Check that existing tags meet Nebula conventions.  The tag format should be vx.y
 
 #### Travis Config
 
-Edit the .travis.yml file:  
-* If the api_key credentials are not your own, set yours with ```travis setup releases --force```.  
+Edit the .travis.yml file:
 * The Travis gem can be installed with ```gem install -v 1.7.5 --no-rdoc --no-ri travis```.  
-* Add ```file_glob:  true``` to allow wildcards in the file: argument(s).  
-* Set or change file to ```build/distributions/*``` or ```build/libs/*```.  The argument can point to a single file (with or without wildcards) or list of files in yml notation.
+* If the api_key credentials are not working, generate new ones with ```travis setup releases --force``` and the XebiaLabsCommunityCI system account.  
+* Add ```file_glob:  true``` to allow wildcards in the `file:` argument(s).  
+* Set or change `file` to ```build/distributions/*``` or ```build/libs/*```.  The argument can point to a single file (with or without wildcards) or list of files in yml notation.
 * Add ```skip_cleanup:  true```, so the cleanup doesn't delete the file to be uploaded.
 * Add ```on:``` block  
 ```all_branches:  true```    
@@ -137,6 +137,7 @@ deploy:
 * Set the [appropriate tag](https://semver.org), e.g., ```git tag -a "v1.3.0" -m "Version 1.3.0"``` for the last commit.
 * Execute ```git push --follow-tags```.
 * Each push will trigger a Travis job; the second job will add the files listed to the repository's Releases page.
+* Consider editing the release notes in GitHub to provide better insight into what's included/important for this release.
 
 ## Definition of Done
 
