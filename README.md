@@ -1,7 +1,7 @@
 ### Welcome to XebiaLabs Community Plugins
 This page describes how you can contribute to the [XebiaLabs](https://xebialabs.com/) community plugins, where the continuous integration is located and what steps to follow to release your community plugin.
 
-_To join the xebialabs-community organization, create a [GitHub](https://github.com/join) account and request to join the organization with an email to [rbroker@xebialabs.com](mailto:rbroker@xebialabs.com) and [amohleji@xebialabs.com](mailto:amohleji@xebialabs.com)._
+_To join the xebialabs-community organization, create a [GitHub](https://github.com/join) account and request to join the organization by sending an email to [rbroker@xebialabs.com](mailto:rbroker@xebialabs.com) and [amohleji@xebialabs.com](mailto:amohleji@xebialabs.com)._
 
 ### Quickstart for Existing Plugins
 
@@ -131,6 +131,19 @@ deploy:
 ```
 
 #### New Releases
+
+* Add ```id 'nebula.release' version '6.0.0'``` to ```plugins```.
+* Remove the hardcoded version assignment if present.
+* Add scope and useLastTag logic.  Note, if it appears that Gradle is not processing these lines, move them higher in the build.gradle file.  See the history of the build.gradle file in <https://github.com/xebialabs-community/xlr-ansible-tower-plugin> for an example.
+
+```
+if (!project.hasProperty('release.scope')) {
+  project.ext['release.scope'] = 'patch'
+}
+if (!project.hasProperty('release.useLastTag')) {
+  project.ext['release.useLastTag'] = true
+}
+```
 
 * Confirm a successful build in your local directory.
 * Commit the code changes in your local directory, then push them to the GitHub repository.
