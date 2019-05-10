@@ -71,7 +71,8 @@ Builds should typically be ran with `./gradlew build`.
 
 * Update the `build.gradle` file to contain the new version number.
 * Update the `.travis.yml` file to contain the new version number.
-* Create a new tag, using [semantic versioning](https://semver.org). For example: `git tag -a v4.5.2 -m 'Version 4.5.2' 373159`.
+* Create a new tag, using [semantic versioning](https://semver.org).
+   * For example: `git tag -a v4.5.2 -m 'Version 4.5.2' 373159` for commit 373159.
 * Push the tag to GitHub: `git push --follow-tags`.
 
 ### Versioning - Nebula and Travis
@@ -133,7 +134,7 @@ deploy:
 
 * Confirm a successful build in your local directory.
 * Commit the code changes in your local directory, then push them to the GitHub repository.
-* Set the [appropriate tag](https://semver.org), e.g., ```git tag -a "v1.3.0" -m "Version 1.3.0"```.
+* Set the [appropriate tag](https://semver.org), e.g., ```git tag -a "v1.3.0" -m "Version 1.3.0"``` for the last commit.
 * Execute ```git push --follow-tags```.
 * Each push will trigger a Travis job; the second job will add the files listed to the repository's Releases page.
 
