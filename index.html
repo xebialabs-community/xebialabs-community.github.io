@@ -27,22 +27,22 @@
 
   <div class="container">
     <article class="markdown-body"><h3>
-<h3>Welcome to XebiaLabs Community plugins</h3>
+<h3>Welcome to XebiaLabs Community Plugins</h3>
 
 <p>This page describes how you can contribute to the <a href="https://xebialabs.com/">XebiaLabs</a> community plugins, where the continuous integration is located and what steps to follow to release your community plugin.</p>
 
-<h3>Join the xebialabs-community organization</h3>
+<p><em>To join the xebialabs-community organization, create a <a href="https://github.com/join">GitHub</a> account and request to join the organization by sending an email to <a href="mailto:rbroker@xebialabs.com">rbroker@xebialabs.com</a> and <a href="mailto:amohleji@xebialabs.com">amohleji@xebialabs.com</a>.</em></p>
 
-<p>Create a <a href="https://github.com/join">GitHub</a> account, and request to join the organization by sending an email to <a href="mailto:rbroker@xebialabs.com">rbroker@xebialabs.com</a> and <a href="mailto:amohleji@xebialabs.com">amohleji@xebialabs.com</a>.</p>
-
-<h3>Fork a repo or generate a pull request</h3>
+<h3>Quickstart for Existing Plugins</h3>
 
 <p>If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request.
-If you need help with this, you can contact for example the person who last committed to that repository.</p>
+If you need help with this, contact an existing plugin contributor - for example the person who last committed to that repository.</p>
 
-<h3>License to be used</h3>
+<h2>Plugin Setup</h2>
 
-<p>XebiaLabs requires each plugin to include the following <a href="https://opensource.org/licenses/MIT">license information</a>:</p>
+<h3>License</h3>
+
+<p>XebiaLabs requires that each plugin use the <a href="https://opensource.org/licenses/MIT">MIT license</a>:</p>
 
 <pre><code>Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;
 
@@ -53,7 +53,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </code></pre>
 
-<p>This can easily be done using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a>:</p>
+<p>Licensing can be easily handled using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a>:</p>
 
 <pre><code>plugins {
     id "com.github.hierynomus.license" version "0.13.1"
@@ -69,7 +69,7 @@ license {
 
 <h3>Dependencies</h3>
 
-<p>We have a public artifact repository which Gradle or Maven can use to fetch dependencies. It is located at <a href="https://dist.xebialabs.com/public/maven2">https://dist.xebialabs.com/public/maven2</a>. For example, to configure Gradle to use it:</p>
+<p>We have a public artifact repository which Gradle or Maven can use to fetch dependencies. It is located at <a href="https://dist.xebialabs.com/public/maven2">https://dist.xebialabs.com/public/maven2</a>. A Gradle configuration which uses the repository would look like this:</p>
 
 <pre><code>repositories {
   ...
@@ -83,55 +83,77 @@ license {
 
 <h4>Travis CI</h4>
 
-<p>XebiaLabs uses Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is located in the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
+<p>XebiaLabs uses Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is provided by the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
 
-<p>Please also configure <a href="https://hipchat.com/">HipChat</a> notifications as described <a href="http://docs.travis-ci.com/user/notifications/#HipChat-notification">here</a> (TravisCI room) and GitHub releases as described <a href="http://docs.travis-ci.com/user/deployment/releases/">here</a>.</p>
+<p>When creating the <code>.travis.yml</code> file, please configure <a href="https://slack.com/">Slack</a> notifications as described <a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">here</a>  and GitHub releases as described <a href="http://docs.travis-ci.com/user/deployment/releases/">here</a>.  Use the XebiaLabsCommunityCI system account for GitHub keys.</p>
 
 <h4>Circle CI</h4>
 
 <p>As an alternative, you can use Circle CI.</p>
 
-<h3>Use a Gradle wrapper</h3>
+<h3>Gradle Wrapper</h3>
 
-<p>Using a Gradle wrapper ensures that the same Gradle version is used (including on Travis CI). An example usage of a Gradle wrapper can be found in <a href="https://github.com/xebialabs-community/xld-openshift-plugin">the xld-openshift-plugin repository</a>. You can copy the example wrapper or create one yourself using <code>gradle wrapper</code>.</p>
+<p>Using a Gradle wrapper ensures that the same Gradle version is used for all builds (including on Travis CI). An example Gradle wrapper can be found in <a href="https://github.com/xebialabs-community/xld-openshift-plugin">the xld-openshift-plugin repository</a>. You can copy the example wrapper or create one yourself using <code>gradle wrapper</code>.</p>
 
-<h3>Release your plugin (general outline)</h3>
+<p>Builds should typically be ran with <code>./gradlew build</code>.</p>
 
-<p>Make sure you follow these steps</p>
+<h2>Release Outline</h2>
+
+<h3>Versioning - Manual/Basic</h3>
 
 <ul>
 <li>Update the <code>build.gradle</code> file to contain the new version number.</li>
 <li>Update the <code>.travis.yml</code> file to contain the new version number.</li>
-<li>Create a new tag. For example: <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code>.</li>
+<li>Create a new tag, using <a href="https://semver.org">semantic versioning</a>.
+<ul>
+<li>For example: <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code> for commit 373159.</li>
+</ul></li>
 <li>Push the tag to GitHub: <code>git push --follow-tags</code>.</li>
 </ul>
 
-<h3>Release your plugin with Gradle, Nebula, and Travis</h3>
+<h3>Versioning - Nebula and Travis</h3>
 
-<p>Nebula eliminates the need to set and/or change the version number in the Gradle file.  The Travis build will use the version number set in the commit tag.  The tags in the repo must be set appropriately by the developer for a major, minor, or patch release using the Nebula conventions.</p>
+<p>Nebula eliminates the need to set and/or change the version number in the Gradle file.  The Travis build will use the version number set in the commit tag.  The tags in the repository must be set appropriately by the developer for a major, minor, or patch release using the Nebula conventions.</p>
 
-<h4>Check that existing tags meet Nebula conventions.</h4>
+<h4>Gradle Config</h4>
 
 <ul>
-<li>The tag format should be vx.y.z, where x = major release number, y = minor release number, z = patch level.  See the Semantic Versioning reference at <a href="https://semver.org">https://semver.org</a>.</li>
+<li>Add <code>id 'nebula.release' version '6.0.0'</code> to the <code>plugins</code> section of the <code>build.gradle</code> file.</li>
+<li>Remove the hard-coded version assignment if present.</li>
+<li>Add scope and useLastTag logic.  Note, if it appears that Gradle is not processing these lines, move them higher in the build.gradle file.  See the history of the build.gradle file in <a href="https://github.com/xebialabs-community/xlr-ansible-tower-plugin">https://github.com/xebialabs-community/xlr-ansible-tower-plugin</a> for an example.</li>
 </ul>
 
-<h4>Edit the .travis.yml file.</h4>
+<pre><code>if (!project.hasProperty('release.scope')) {
+  project.ext['release.scope'] = 'patch'
+}
+if (!project.hasProperty('release.useLastTag')) {
+  project.ext['release.useLastTag'] = true
+}
+</code></pre>
 
-<ul>
-<li>If the api_key credentials are not your own, set yours with <code>travis setup releases --force</code>.  </li>
-<li>The Travis gem can be installed with <code>gem install -v 1.7.5 --no-rdoc --no-ri travis</code>.  </li>
-<li>Add <code>file_glob:  true</code> to allow wildcards in the file: argument(s).  </li>
-<li>Set or change file to <code>build/distributions/*</code> or <code>build/libs/*</code>.  The argument can point to a single file (with or without wildcards) or list of files in yml notation.</li>
-<li>Add <code>skip_cleanup:  true</code>, so the cleanup doesn't delete the file to be uploaded.</li>
-<li><p>Add <code>on:</code> block <br />
+<h4>Nebula Compatibility of Existing Tags</h4>
+
+<p>Check that existing tags meet Nebula conventions.  The tag format should be vx.y.z, where x = major release number, y = minor release number, z = patch level.  See the Semantic Versioning reference at <a href="https://semver.org">https://semver.org</a>.</p>
+
+<h4>Travis Config</h4>
+
+<p>Edit the .travis.yml file:
+* The Travis gem can be installed with <code>gem install -v 1.7.5 --no-rdoc --no-ri travis</code>. <br />
+* If the api_key credentials are not working, generate new ones with <code>travis setup releases --force</code> and the XebiaLabsCommunityCI system account. <br />
+* Add <code>file_glob:  true</code> to allow wildcards in the <code>file:</code> argument(s). <br />
+* Set or change <code>file</code> to <code>build/distributions/*</code> or <code>build/libs/*</code>.  The argument can point to a single file (with or without wildcards) or list of files in yml notation.
+* Add <code>skip_cleanup:  true</code>, so the cleanup doesn't delete the file to be uploaded.
+* Add <code>on:</code> block <br />
 <code>all_branches:  true</code> <br />
 <code>tags:  true</code> <br />
-<code>repo:  repo-owner/repo-name</code>  </p></li>
-<li><p>Also, <code>before_deploy:</code> and <code>after_deploy:</code> blocks are available to run scripts before/after release is pushed.</p></li>
-<li><p>Turn on the repository switch for the repo at https://travis-ci.org/profile/xebialabs-community.</p></li>
-<li><p>Example:</p></li>
+<code>repo:  repo-owner/repo-name</code>  </p>
+
+<ul>
+<li>Also, <code>before_deploy:</code> and <code>after_deploy:</code> blocks are available to run scripts before/after release is pushed.</li>
+<li>Turn on the switch for the repository at https://travis-ci.org/profile/xebialabs-community.</li>
 </ul>
+
+<p>Example:</p>
 
 <pre><code>deploy:
   provider:  releases
@@ -146,7 +168,7 @@ license {
     repo:  repo-owner/repo-name
 </code></pre>
 
-<h4>Edit the build.gradle file.</h4>
+<h4>New Releases</h4>
 
 <ul>
 <li>Add <code>id 'nebula.release' version '6.0.0'</code> to <code>plugins</code>.</li>
@@ -163,15 +185,15 @@ if (!project.hasProperty('release.useLastTag')) {
 </code></pre>
 
 <ul>
-<li>Confirm a successful build in your local directory with `<code>./gradlew build</code>.</li>
-<li>Commit all pending changes in your local directory.</li>
-<li>Execute <code>git push</code>.</li>
-<li>Set the appropriate tag, e.g., <code>git tag -a "v1.3.0" -m "Version 1.3.0"</code>.</li>
+<li>Confirm a successful build in your local directory.</li>
+<li>Commit the code changes in your local directory, then push them to the GitHub repository.</li>
+<li>Set the <a href="https://semver.org">appropriate tag</a>, e.g., <code>git tag -a "v1.3.0" -m "Version 1.3.0"</code> for the last commit.</li>
 <li>Execute <code>git push --follow-tags</code>.</li>
 <li>Each push will trigger a Travis job; the second job will add the files listed to the repository's Releases page.</li>
+<li>Consider editing the release notes in GitHub to provide better insight into what's included/important for this release.</li>
 </ul>
 
-<h3>Rules to follow - Definition of Done</h3>
+<h2>Definition of Done</h2>
 
 <ul>
 <li>Each repository must include the MIT license.</li>
@@ -183,7 +205,7 @@ if (!project.hasProperty('release.useLastTag')) {
 <li>Each repository must have public CI enabled (Travis, CircleCI, or other) and the corresponding badge in the <code>README.md</code> file.</li>
 </ul>
 
-<h3>Extra information</h3>
+<h2>Extra Information</h2>
 
 <ul>
 <li><a href="https://xebialabs.com/">XebiaLabs website</a></li>
