@@ -2,49 +2,49 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
 
-  <title>XebiaLabs Community Plugins</title>
+    <title>XebiaLabs Community Plugins</title>
 </head>
 
 <body>
 
-  <header>
+    <header>
+        <div class="container">
+            <img src="images/logo.jpg" alt="XebiaLabs" class="logo">
+            <br />
+            <h1>XebiaLabs Community Plugins</h1>
+
+            <section id="downloads">
+                <a href="https://github.com/xebialabs-community" class="btn btn-github">
+                    <span class="icon"></span>View on GitHub</a>
+            </section>
+        </div>
+    </header>
+
     <div class="container">
-      <img src="images/logo.jpg" alt="XebiaLabs" class="logo">
-      <br />
-      <h1>XebiaLabs Community Plugins</h1>
+        <article class="markdown-body">
+            <h2>Welcome to XebiaLabs Community Plugins</h2>
 
-      <section id="downloads">
-        <a href="https://github.com/xebialabs-community" class="btn btn-github">
-          <span class="icon"></span>View on GitHub</a>
-      </section>
-    </div>
-  </header>
+            <p>This page describes how you can contribute to the <a href="https://xebialabs.com/">XebiaLabs</a> community plugins, with supplemental information around continuous integration and versioning/release details.</p>
 
-  <div class="container">
-    <article class="markdown-body"><h3>
-<h3>Welcome to XebiaLabs Community Plugins</h3>
+            <p><em>To join the xebialabs-community organization, create a <a href="https://github.com/join">GitHub</a> account and request to join the organization by sending an email to <a href="mailto:rbroker@xebialabs.com">rbroker@xebialabs.com</a> and <a href="mailto:amohleji@xebialabs.com">amohleji@xebialabs.com</a>.</em></p>
 
-<p>This page describes how you can contribute to the <a href="https://xebialabs.com/">XebiaLabs</a> community plugins, where the continuous integration is located and what steps to follow to release your community plugin.</p>
+            <h2>Quickstart for Existing Plugins</h2>
 
-<p><em>To join the xebialabs-community organization, create a <a href="https://github.com/join">GitHub</a> account and request to join the organization by sending an email to <a href="mailto:rbroker@xebialabs.com">rbroker@xebialabs.com</a> and <a href="mailto:amohleji@xebialabs.com">amohleji@xebialabs.com</a>.</em></p>
+            <p>If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request.
+                If you need help with this, contact an existing plugin contributor - for example the person who last committed to that repository.</p>
 
-<h3>Quickstart for Existing Plugins</h3>
+            <h2>Plugin Setup</h2>
 
-<p>If you want to contribute to an existing repository, simply fork the repository, make your changes, and send a pull request.
-If you need help with this, contact an existing plugin contributor - for example the person who last committed to that repository.</p>
+            <h3>License</h3>
 
-<h2>Plugin Setup</h2>
+            <p>XebiaLabs requires that each plugin use the <a href="https://opensource.org/licenses/MIT">MIT license</a>:</p>
 
-<h3>License</h3>
-
-<p>XebiaLabs requires that each plugin use the <a href="https://opensource.org/licenses/MIT">MIT license</a>:</p>
-
-<pre><code>Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;
+            <pre><code>Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -53,9 +53,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </code></pre>
 
-<p>Licensing can be easily handled using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a>:</p>
+            <p>Licensing can be easily handled using the <a href="https://github.com/hierynomus/license-gradle-plugin">Gradle license plugin</a>:</p>
 
-<pre><code>plugins {
+            <pre><code>plugins {
     id "com.github.hierynomus.license" version "0.13.1"
 }
 ...
@@ -67,11 +67,11 @@ license {
 }
 </code></pre>
 
-<h3>Dependencies</h3>
+            <h3>Dependencies</h3>
 
-<p>We have a public artifact repository which Gradle or Maven can use to fetch dependencies. It is located at <a href="https://dist.xebialabs.com/public/maven2">https://dist.xebialabs.com/public/maven2</a>. A Gradle configuration which uses the repository would look like this:</p>
+            <p>We have a public artifact repository which Gradle or Maven can use to fetch dependencies. It is located at <a href="https://dist.xebialabs.com/public/maven2">https://dist.xebialabs.com/public/maven2</a>. A Gradle configuration which uses the repository would look like this:</p>
 
-<pre><code>repositories {
+            <pre><code>repositories {
   ...
   maven {
     url 'http://dist.xebialabs.com/public/maven2'
@@ -79,51 +79,40 @@ license {
 }
 </code></pre>
 
-<h3>Continuous Integration</h3>
+            <h3>Gradle Wrapper</h3>
 
-<h4>Travis CI</h4>
+            <p>Using a Gradle wrapper ensures that the same Gradle version is used for all builds (including on Travis CI). An example Gradle wrapper can be found in <a href="https://github.com/xebialabs-community/xld-openshift-plugin">the xld-openshift-plugin repository</a>. You can copy the example wrapper or create one yourself using <code>gradle wrapper</code>.</p>
 
-<p>XebiaLabs uses Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is provided by the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
+            <p>Builds should typically be ran with <code>./gradlew build</code>.</p>
 
-<p>When creating the <code>.travis.yml</code> file, please configure <a href="https://slack.com/">Slack</a> notifications as described <a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">here</a>  and GitHub releases as described <a href="http://docs.travis-ci.com/user/deployment/releases/">here</a>.  Use the XebiaLabsCommunityCI system account for GitHub keys.</p>
+            <h2>Releases and Versioning</h2>
 
-<h4>Circle CI</h4>
+            <h3>Versioning - Manual/Basic Option</h3>
 
-<p>As an alternative, you can use Circle CI.</p>
+            <ul>
+                <li>Update the <code>build.gradle</code> file to contain the new version number.</li>
+                <li>Update the <code>.travis.yml</code> file to contain the new version number.</li>
+                <li>Create a new tag, using <a href="https://semver.org">semantic versioning</a>.
+                    <ul>
+                        <li>For example: <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code> for commit 373159.</li>
+                    </ul>
+                </li>
+                <li>Push the tag to GitHub: <code>git push --follow-tags</code>.</li>
+            </ul>
 
-<h3>Gradle Wrapper</h3>
+            <h3>Versioning - Automated Option</h3>
 
-<p>Using a Gradle wrapper ensures that the same Gradle version is used for all builds (including on Travis CI). An example Gradle wrapper can be found in <a href="https://github.com/xebialabs-community/xld-openshift-plugin">the xld-openshift-plugin repository</a>. You can copy the example wrapper or create one yourself using <code>gradle wrapper</code>.</p>
+            <p>Nebula eliminates the need to set and/or change the version number in the Gradle file. The CI build will use the version number set in the commit tag. The tags in the repository must be set appropriately by the developer for a major, minor, or patch release using the Nebula conventions.</p>
 
-<p>Builds should typically be ran with <code>./gradlew build</code>.</p>
+            <h4>Gradle Config</h4>
 
-<h2>Release Outline</h2>
+            <ul>
+                <li>Add <code>id 'nebula.release' version '6.0.0'</code> to the <code>plugins</code> section of the <code>build.gradle</code> file.</li>
+                <li>Remove the hard-coded version assignment if present.</li>
+                <li>Add scope and useLastTag logic. Note, if it appears that Gradle is not processing these lines, move them higher in the build.gradle file. See the history of the build.gradle file in <a href="https://github.com/xebialabs-community/xlr-ansible-tower-plugin">https://github.com/xebialabs-community/xlr-ansible-tower-plugin</a> for an example.</li>
+            </ul>
 
-<h3>Versioning - Manual/Basic</h3>
-
-<ul>
-<li>Update the <code>build.gradle</code> file to contain the new version number.</li>
-<li>Update the <code>.travis.yml</code> file to contain the new version number.</li>
-<li>Create a new tag, using <a href="https://semver.org">semantic versioning</a>.
-<ul>
-<li>For example: <code>git tag -a v4.5.2 -m 'Version 4.5.2' 373159</code> for commit 373159.</li>
-</ul></li>
-<li>Push the tag to GitHub: <code>git push --follow-tags</code>.</li>
-</ul>
-
-<h3>Versioning - Nebula and Travis</h3>
-
-<p>Nebula eliminates the need to set and/or change the version number in the Gradle file.  The Travis build will use the version number set in the commit tag.  The tags in the repository must be set appropriately by the developer for a major, minor, or patch release using the Nebula conventions.</p>
-
-<h4>Gradle Config</h4>
-
-<ul>
-<li>Add <code>id 'nebula.release' version '6.0.0'</code> to the <code>plugins</code> section of the <code>build.gradle</code> file.</li>
-<li>Remove the hard-coded version assignment if present.</li>
-<li>Add scope and useLastTag logic.  Note, if it appears that Gradle is not processing these lines, move them higher in the build.gradle file.  See the history of the build.gradle file in <a href="https://github.com/xebialabs-community/xlr-ansible-tower-plugin">https://github.com/xebialabs-community/xlr-ansible-tower-plugin</a> for an example.</li>
-</ul>
-
-<pre><code>if (!project.hasProperty('release.scope')) {
+            <pre><code>if (!project.hasProperty('release.scope')) {
   project.ext['release.scope'] = 'patch'
 }
 if (!project.hasProperty('release.useLastTag')) {
@@ -131,31 +120,55 @@ if (!project.hasProperty('release.useLastTag')) {
 }
 </code></pre>
 
-<h4>Nebula Compatibility of Existing Tags</h4>
+            <h4>Nebula Compatibility of Existing Tags</h4>
 
-<p>Check that existing tags meet Nebula conventions.  The tag format should be vx.y.z, where x = major release number, y = minor release number, z = patch level.  See the Semantic Versioning reference at <a href="https://semver.org">https://semver.org</a>.</p>
+            <p>Check that existing tags meet Nebula conventions. The tag format should be vx.y.z, where x = major release number, y = minor release number, z = patch level. See the Semantic Versioning reference at <a href="https://semver.org">https://semver.org</a>.</p>
 
-<h4>Travis Config</h4>
+            <h3>Releases</h3>
 
-<p>Edit the .travis.yml file:
-* The Travis gem can be installed with <code>gem install -v 1.7.5 --no-rdoc --no-ri travis</code>. <br />
-* If the api_key credentials are not working, generate new ones with <code>travis setup releases --force</code> and the XebiaLabsCommunityCI system account. <br />
-* Add <code>file_glob:  true</code> to allow wildcards in the <code>file:</code> argument(s). <br />
-* Set or change <code>file</code> to <code>build/distributions/*</code> or <code>build/libs/*</code>.  The argument can point to a single file (with or without wildcards) or list of files in yml notation.
-* Add <code>skip_cleanup:  true</code>, so the cleanup doesn't delete the file to be uploaded.
-* Add <code>on:</code> block <br />
-<code>all_branches:  true</code> <br />
-<code>tags:  true</code> <br />
-<code>repo:  repo-owner/repo-name</code>  </p>
+            <ol>
+                <li>Confirm a successful build in your local directory.</li>
+                <li>Commit the code changes in your local directory, then push them to the GitHub repository.</li>
+                <li>Set the <a href="https://semver.org">appropriate tag</a>, e.g., <code>git tag -a "v1.3.0" -m "Version 1.3.0"</code> for the last commit.</li>
+                <li>Execute <code>git push --follow-tags</code>.</li>
+                <li>Each push will trigger a Travis job; the second job will add the files listed to the repository's Releases page.</li>
+                <li>Consider editing the release notes in GitHub to provide better insight into what's included/important for this release.</li>
+            </ol>
 
-<ul>
-<li>Also, <code>before_deploy:</code> and <code>after_deploy:</code> blocks are available to run scripts before/after release is pushed.</li>
-<li>Turn on the switch for the repository at https://travis-ci.org/profile/xebialabs-community.</li>
-</ul>
+            <h2>Continuous Integration</h2>
 
-<p>Example:</p>
+            <h3>Travis CI</h3>
 
-<pre><code>deploy:
+            <p>Some plugins use Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is provided by the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
+
+            <p>When creating the <code>.travis.yml</code> file, please configure <a href="https://slack.com/">Slack</a> notifications as described <a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">here</a> and GitHub releases as described <a href="http://docs.travis-ci.com/user/deployment/releases/">here</a>. Use the XebiaLabsCommunityCI system account for GitHub keys.</p>
+
+            <h4>Travis Config</h4>
+
+            <p>Edit the .travis.yml file:</p>
+            <ul>
+                <li>The Travis gem can be installed with <code>gem install -v 1.7.5 --no-rdoc --no-ri travis</code>.</li>
+                <li>If the api_key credentials are not working, generate new ones with <code>travis setup releases --force</code> and the XebiaLabsCommunityCI system account.</li>
+                <li>Add <code>file_glob: true</code> to allow wildcards in the <code>file:</code> argument(s).</li>
+                <li>Set or change <code>file</code> to <code>build/distributions/*</code> or <code>build/libs/*</code>. The argument can point to a single file (with or without wildcards) or list of files in yml notation.</li>
+                <li>Add <code>skip_cleanup: true</code>, so the cleanup doesn't delete the file to be uploaded.</li>
+                <li>Add this configuration:</li>
+            </ul>
+            <pre><code>on:
+  all_branches: true
+  tags: true
+  repo: repo-owner/repo-name
+</code></pre>
+
+
+            <ul>
+                <li>Also, <code>before_deploy:</code> and <code>after_deploy:</code> blocks are available to run scripts before/after release is pushed.</li>
+                <li>Turn on the switch for the repository at https://travis-ci.org/profile/xebialabs-community.</li>
+            </ul>
+
+            <p>Example:</p>
+
+            <pre><code>deploy:
   provider:  releases
   api_key:
     secure:  ...
@@ -168,52 +181,28 @@ if (!project.hasProperty('release.useLastTag')) {
     repo:  repo-owner/repo-name
 </code></pre>
 
-<h4>New Releases</h4>
+            <h2>Definition of Done</h2>
 
-<ul>
-<li>Add <code>id 'nebula.release' version '6.0.0'</code> to <code>plugins</code>.</li>
-<li>Remove the hardcoded version assignment if present.</li>
-<li>Add scope and useLastTag logic.  Note, if it appears that Gradle is not processing these lines, move them higher in the build.gradle file.  See the history of the build.gradle file in <a href="https://github.com/xebialabs-community/xlr-ansible-tower-plugin">https://github.com/xebialabs-community/xlr-ansible-tower-plugin</a> for an example.</li>
-</ul>
+            <ol>
+                <li>Each repository must include the MIT license.</li>
+                <li>Each repository must have a description.</li>
+                <li>Each repository must have one or more GitHub topics defined.</li>
+                <li>If your repository is a plugin, the repository name should end with <code>plugin</code>.</li>
+                <li>If your repository is a plugin for XL Deploy, the repository name should start with <code>xld</code>.</li>
+                <li>If your repository is a plugin for XL Release, the repository name should start with <code>xlr</code>.</li>
+                <li>Each repository must have public CI enabled (GitHub Actions, TravisCI, or other) and the corresponding badge in the <code>README.md</code> file.</li>
+            </ol>
 
-<pre><code>if (!project.hasProperty('release.scope')) {
-  project.ext['release.scope'] = 'patch'
-}
-if (!project.hasProperty('release.useLastTag')) {
-  project.ext['release.useLastTag'] = true
-}
-</code></pre>
+            <h2>Extra Information</h2>
 
-<ul>
-<li>Confirm a successful build in your local directory.</li>
-<li>Commit the code changes in your local directory, then push them to the GitHub repository.</li>
-<li>Set the <a href="https://semver.org">appropriate tag</a>, e.g., <code>git tag -a "v1.3.0" -m "Version 1.3.0"</code> for the last commit.</li>
-<li>Execute <code>git push --follow-tags</code>.</li>
-<li>Each push will trigger a Travis job; the second job will add the files listed to the repository's Releases page.</li>
-<li>Consider editing the release notes in GitHub to provide better insight into what's included/important for this release.</li>
-</ul>
-
-<h2>Definition of Done</h2>
-
-<ul>
-<li>Each repository must include the MIT license.</li>
-<li>Each repository must have a description.</li>
-<li>Each repository must have one or more GitHub topics defined.</li>
-<li>If your repository is a plugin, the repository name should end with <code>plugin</code>.</li>
-<li>If your repository is a plugin for XL Deploy, the repository name should start with <code>xld</code>.</li>
-<li>If your repository is a plugin for XL Release, the repository name should start with <code>xlr</code>.</li>
-<li>Each repository must have public CI enabled (Travis, CircleCI, or other) and the corresponding badge in the <code>README.md</code> file.</li>
-</ul>
-
-<h2>Extra Information</h2>
-
-<ul>
-<li><a href="https://xebialabs.com/">XebiaLabs website</a></li>
-<li><a href="https://docs.xebialabs.com/">XebiaLabs documentation</a></li>
-<li><a href="https://support.xebialabs.com">XebiaLabs support</a></li>
-<li><a href="https://github.com/xebialabs-community">XebiaLabs community</a></li>
-</ul>
-</article>
-  </div>
+            <ul>
+                <li><a href="https://xebialabs.com/">XebiaLabs website</a></li>
+                <li><a href="https://docs.xebialabs.com/">XebiaLabs documentation</a></li>
+                <li><a href="https://support.xebialabs.com">XebiaLabs support</a></li>
+                <li><a href="https://github.com/xebialabs-community">XebiaLabs community</a></li>
+            </ul>
+        </article>
+    </div>
 </body>
+
 </html>
