@@ -137,6 +137,73 @@ if (!project.hasProperty('release.useLastTag')) {
 
             <h2>Continuous Integration</h2>
 
+            <h3>GitHub Actions</h3>
+
+            GitHub Actions is the default and recommended option for continuous integration after December 1, 2020.  Minimal configuration is required to setup a GitHub Actions CI workflow.  Two files should be defined at <code>$REPO/.github/workflows/build.yaml</code> and <code>$REPO/.github/workflows/release.yaml</code>.  Examples for copy and paste are shown below:<br>
+            <br>
+            For <code>build.yaml:</code>
+            <pre><code>name: "build"
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build with Gradle
+        run: ./gradlew clean build
+</code></pre>
+            This build ensures every commit results in a plugin which can be successfully compiled.  The three automated steps in this workflow are:
+            <ol>
+              <li>Check out the repository</li>
+              <li>Install Java 1.8</li>
+              <li>Run the Gradle build</li>
+            </ol>
+
+            For <code>release.yaml</code>
+            <pre><code>name: "release"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # ...
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build with Gradle
+        run: ./gradlew clean build
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            ./build/libs/xlr-jenkins-multibranch-plugin-*.jar
+</code></pre>
+            This workflow will only run on tagged commits.  It builds the plugin, then creates a new versioned release.  Replace the <code>files:</code> value of <code>./build/libs/xlr-jenkins-multibranch-plugin-*.jar</code> with a value for your specific plugin.  Note that the secret value in this config is automatically provided by GitHub Actions, and does not need to be manually configured.  Again, setting up these two files should be all that is needed for GitHub Actions CI setup.
+
+            The four automated steps in this workflow are:
+            <ol>
+              <li>Check out the repository</li>
+              <li>Install Java 1.8</li>
+              <li>Run the Gradle build</li>
+              <li>Create a release based on the tag</li>
+            </ol>
+
             <h3>Travis CI</h3>
 
             <p>Some plugins use Travis CI for continuous integration. Go to <a href="https://travis-ci.org">Travis CI</a> and log in with your GitHub account. After you log in, you'll see the community plugins being built. The build configuration is provided by the <code>.travis.yml</code> file in each repository. More information is available at the <a href="http://docs.travis-ci.com/">Travis CI documentation site</a>.</p>
