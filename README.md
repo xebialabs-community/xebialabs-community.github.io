@@ -35,7 +35,7 @@ license {
   header rootProject.file('License.md')
   strictCheck false
   ext.year = Calendar.getInstance().get(Calendar.YEAR)
-  ext.name = 'XEBIALABS'
+  ext.name = 'DIGITAL.AI'
 }
 ```
 
